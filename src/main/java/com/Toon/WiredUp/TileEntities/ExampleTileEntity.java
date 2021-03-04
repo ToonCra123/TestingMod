@@ -5,6 +5,7 @@ import com.Toon.WiredUp.WiredUp;
 import com.Toon.WiredUp.init.TileEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
@@ -14,8 +15,10 @@ import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.energy.IEnergyStorage;
 
@@ -39,6 +42,10 @@ public class ExampleTileEntity extends LockableLootTileEntity implements ITickab
         super(TileEntityTypes.EXAMPLE_TILE_ENTITY.get());
     }
 
+
+    public void dropAllContents(World world, BlockPos blockPos) {
+        InventoryHelper.dropItems(world, blockPos, items);
+    }
 
     @Override
     protected NonNullList<ItemStack> getItems() {

@@ -11,9 +11,6 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-// References
-import net.minecraft.client.gui.screen.inventory.FurnaceScreen;
-
 @OnlyIn(Dist.CLIENT)
 public class ExampleTileContainerScreen extends ContainerScreen<ExampleTileContainer> {
     private static final ResourceLocation GUI_LOCATION = new ResourceLocation(WiredUp.MODID, "textures/gui/example_gui.png");
@@ -50,7 +47,7 @@ public class ExampleTileContainerScreen extends ContainerScreen<ExampleTileConta
 
         float energy = this.container.getEnergyNormalizedStored();
 
-        this.blit(matrixStack, x + 124, y + 10, 176, 0, 20,  Math.round(energy));
+        this.blit(matrixStack, x + 124, y + 10 + 67 - Math.round(energy), 176, 67 - Math.round(energy), 20,  Math.round(energy));
 
         if (this.container.te.isBurning()) {
             int i = this.guiLeft;

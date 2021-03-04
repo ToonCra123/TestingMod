@@ -81,5 +81,18 @@ public class ExampleTile extends Block {
         }
         return ActionResultType.SUCCESS;
     }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
+            TileEntity tileentity = worldIn.getTileEntity(pos);
+            if (tileentity instanceof ExampleTileEntity) {
+                ExampleTileEntity tileEntityInventoryBasic = (ExampleTileEntity)tileentity;
+                tileEntityInventoryBasic.dropAllContents(worldIn, pos);
+            } // worldIn.updateComparatorOutputLevel(pos, this);  if the inventory is used to set redstone power for comparators
+            super.onReplaced(state, worldIn, pos, newState, isMoving);  // call it last, because it removes the TileEntity
+        }
+    }
 }
 
