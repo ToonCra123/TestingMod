@@ -143,6 +143,7 @@ public class ExampleTileEntity extends LockableLootTileEntity implements ITickab
 
     public float getTimeLeftSmeltingNormalized() {
         if (this.isBurning()) {
+            
             return ((float) this.timeLeftSmelting / this.totalTimeSmelting);
         } else {
             return 0f;
