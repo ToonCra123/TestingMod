@@ -7,13 +7,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.util.NonNullList;
@@ -21,10 +18,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 
 public class ExampleTileEntity extends LockableLootTileEntity implements ITickableTileEntity, IEnergyStorage {
 
@@ -143,7 +138,7 @@ public class ExampleTileEntity extends LockableLootTileEntity implements ITickab
 
     public float getTimeLeftSmeltingNormalized() {
         if (this.isBurning()) {
-            
+
             return ((float) this.timeLeftSmelting / this.totalTimeSmelting);
         } else {
             return 0f;
