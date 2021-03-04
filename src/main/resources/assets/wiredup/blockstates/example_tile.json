@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "wiredup:block/example_tile" },
+    "facing=east" : { "model" : "wiredup:block/example_tile", "y": 90 },
+    "facing=south" : { "model" : "wiredup:block/example_tile", "y": 180 },
+    "facing=west" : { "model" : "wiredup:block/example_tile", "y": 270 }
+  }
+}

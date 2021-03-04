@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "wiredup:faces/tile_side",
+    "north": "wiredup:faces/tile_front",
+    "south": "wiredup:faces/tile_side",
+    "east": "wiredup:faces/tile_side",
+    "west": "wiredup:faces/tile_side",
+    "up": "wiredup:faces/tile_side",
+    "down": "wiredup:faces/tile_side"
+  }
+}
